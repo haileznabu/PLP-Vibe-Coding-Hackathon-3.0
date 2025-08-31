@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Study Buddy - Smart Learning Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-brain"></i>
+                <span>AI Study Buddy</span>
+            </div>
+            <div class="nav-menu">
+                <button class="nav-btn active" data-feature="flashcards">
+                    <i class="fas fa-book-open"></i>
+                    Flashcards
+                </button>
+                <button class="nav-btn" data-feature="mindmap">
+                    <i class="fas fa-project-diagram"></i>
+                    Mind Maps
+                </button>
+                <button class="nav-btn" data-feature="chat">
+                    <i class="fas fa-comments"></i>
+                    Study Chat
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-title">
+                <i class="fas fa-sparkles"></i>
+                <h1>AI-Powered Study Companion</h1>
+            </div>
+            <p class="hero-description">
+                Transform your learning with intelligent flashcards, interactive mind maps, and personalized AI tutoring.
+                Study smarter, not harder.
+            </p>
+            <div class="hero-badges">
+                <span class="badge primary">
+                    <i class="fas fa-bullseye"></i>
+                    SDG 4: Quality Education
+                </span>
+                <span class="badge secondary">
+                    <i class="fas fa-users"></i>
+                    Built for Students
+                </span>
+                <span class="badge secondary">
+                    <i class="fas fa-brain"></i>
+                    AI-Powered
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <main class="main-content">
+        <section id="flashcards" class="feature-section active">
+            <div class="section-header">
+                <h2>Smart Flashcards</h2>
+                <p>Paste your study notes and let AI generate interactive flashcards to help you memorize key concepts.</p>
+            </div>
+
+            <div class="flashcards-container">
+                <div class="input-card">
+                    <div class="card-header">
+                        <h3>Study Notes Input</h3>
+                        <p>Paste your study material here and AI will generate flashcards</p>
+                    </div>
+                    <div class="card-content">
+                        <textarea 
+                            id="studyNotes" 
+                            placeholder="Paste your study notes here... For example: 'Mitochondria are organelles found in cells that produce energy through cellular respiration...'"
+                            rows="8"
+                        ></textarea>
+                        <button class="btn-primary" id="generateFlashcards">
+                            <i class="fas fa-sparkles"></i>
+                            Generate Flashcards
+                        </button>
+                        <div class="loading-state" id="flashcardLoading" style="display: none;">
+                            <div class="spinner"></div>
+                            <p>AI is generating your flashcards...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard-display">
+                    <div class="flashcard-header">
+                        <h3>Generated Flashcards</h3>
+                        <div class="flashcard-info">
+                            <span class="card-counter" id="cardCounter">0 of 0</span>
+                            <div class="study-progress">
+                                <span class="progress-label">Progress:</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="progressFill"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flashcard-container">
+                        <div class="flashcard" id="flashcard">
+                            <div class="flashcard-front">
+                                <div class="flashcard-content">
+                                    <div class="card-type">Question</div>
+                                    <p id="question-text">Generate flashcards from your study notes to get started!</p>
+                                    <div class="flip-hint">
+                                        <i class="fas fa-hand-pointer"></i>
+                                        <span>Click to reveal answer</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flashcard-back">
+                                <div class="flashcard-content">
+                                    <div class="card-type">Answer</div>
+                                    <p id="answer-text">Your answer will appear here</p>
+                                    <div class="flip-hint">
+                                        <i class="fas fa-undo"></i>
+                                        <span>Click to see question</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flashcard-controls">
+                        <button class="btn-secondary" id="prevCard" disabled>
+                            <i class="fas fa-chevron-left"></i>
+                            Previous
+                        </button>
+                        <div class="difficulty-buttons">
+                            <button class="btn-difficulty easy" id="easyBtn">
+                                <i class="fas fa-smile"></i>
+                                Easy
+                            </button>
+                            <button class="btn-difficulty medium" id="mediumBtn">
+                                <i class="fas fa-meh"></i>
+                                Medium
+                            </button>
+                            <button class="btn-difficulty hard" id="hardBtn">
+                                <i class="fas fa-frown"></i>
+                                Hard
+                            </button>
+                        </div>
+                        <button class="btn-secondary" id="nextCard" disabled>
+                            Next
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="mindmap" class="feature-section">
+            <div class="section-header">
+                <h2>Mind Map Generator</h2>
+                <p>Enter a topic and AI will create an interactive mind map to help you visualize connections and concepts.</p>
+            </div>
+
+            <div class="mindmap-container">
+                <div class="input-card">
+                    <div class="card-header">
+                        <h3>Topic Input</h3>
+                        <p>Enter a subject or topic to generate a mind map</p>
+                    </div>
+                    <div class="card-content">
+                        <input type="text" id="topicInput" placeholder="e.g., Photosynthesis, World War II, Calculus...">
+                        <button class="btn-primary" id="generateMindMap">
+                            <i class="fas fa-project-diagram"></i>
+                            Generate Mind Map
+                        </button>
+                        <div class="loading-state" id="mindmapLoading" style="display: none;">
+                            <div class="spinner"></div>
+                            <p>AI is creating your mind map...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mindmap-display">
+                    <div class="mindmap-header">
+                        <h3 id="mindmapTitle">Mind Map</h3>
+                        <div class="mindmap-controls">
+                            <button class="btn-icon" id="zoomIn" title="Zoom In">
+                                <i class="fas fa-search-plus"></i>
+                            </button>
+                            <button class="btn-icon" id="zoomOut" title="Zoom Out">
+                                <i class="fas fa-search-minus"></i>
+                            </button>
+                            <button class="btn-icon" id="resetZoom" title="Reset View">
+                                <i class="fas fa-expand-arrows-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="mindmap-canvas" id="mindmapCanvas">
+                        <svg id="mindmapSvg" width="100%" height="100%">
+                            <defs>
+                                <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+                                        refX="9" refY="3.5" orient="auto">
+                                    <polygon points="0 0, 10 3.5, 0 7" fill="#8b5cf6" />
+                                </marker>
+                            </defs>
+                        </svg>
+                        <div class="mindmap-placeholder" id="mindmapPlaceholder">
+                            <i class="fas fa-project-diagram"></i>
+                            <h3>Interactive Mind Map</h3>
+                            <p>Your AI-generated mind map will appear here with clickable nodes and connections.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="chat" class="feature-section">
+            <div class="section-header">
+                <h2>Study Chat Assistant</h2>
+                <p>Get instant help with your studies. Ask questions, request explanations, or get study tips from your AI tutor.</p>
+            </div>
+
+            <div class="chat-container">
+                <div class="chat-card">
+                    <div class="chat-header">
+                        <i class="fas fa-comments"></i>
+                        <h3>AI Study Assistant</h3>
+                        <div class="chat-status">
+                            <div class="status-dot online"></div>
+                            <span>Online</span>
+                        </div>
+                    </div>
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="chat-message assistant welcome-message">
+                            <div class="message-avatar">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="message-content">
+                                <p>Hello! I'm your AI Study Assistant. I'm here to help you learn and understand any topic.</p>
+                                <div class="quick-suggestions">
+                                    <button class="suggestion-btn" data-suggestion="Explain photosynthesis in simple terms">
+                                        Explain photosynthesis
+                                    </button>
+                                    <button class="suggestion-btn" data-suggestion="Help me understand calculus derivatives">
+                                        Help with calculus
+                                    </button>
+                                    <button class="suggestion-btn" data-suggestion="What are the causes of World War I?">
+                                        History questions
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <form class="chat-input-form" id="chatForm">
+                        <input type="text" id="chatInput" placeholder="Ask me anything about your studies...">
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <i class="fas fa-brain"></i>
+                <span>AI Study Buddy</span>
+            </div>
+            <p>Empowering students with AI-powered learning tools</p>
+            <small>Built for the SDG Hackathon - Harnessing AI and Low-Code for Impact</small>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

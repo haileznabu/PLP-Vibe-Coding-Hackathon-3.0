@@ -1,0 +1,873 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  line-height: 1.6;
+  color: #1f2937;
+  background-color: #ffffff;
+}
+
+/* Navigation */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #1f2937;
+  color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.nav-brand i {
+  color: #8b5cf6;
+  font-size: 2rem;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+  background: rgba(139, 92, 246, 0.2);
+  color: #8b5cf6;
+}
+
+.nav-btn.active {
+  background: #8b5cf6;
+  color: white;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+  padding: 5rem 1rem;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.hero-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero-title i {
+  color: #8b5cf6;
+  font-size: 3rem;
+}
+
+.hero-title h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #1f2937;
+}
+
+.hero-description {
+  font-size: 1.25rem;
+  color: #6b7280;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.badge.primary {
+  background: #8b5cf6;
+  color: white;
+}
+
+.badge.secondary {
+  background: transparent;
+  color: #1f2937;
+  border: 2px solid #e5e7eb;
+}
+
+/* Main Content */
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+}
+
+.feature-section {
+  display: none;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.feature-section.active {
+  display: block;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-header h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #1f2937;
+}
+
+.section-header p {
+  font-size: 1.125rem;
+  color: #6b7280;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Cards */
+.input-card,
+.chat-card {
+  background: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+}
+
+.card-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.card-header h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #1f2937;
+}
+
+.card-header p {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.card-content {
+  padding: 1.5rem;
+}
+
+/* Form Elements */
+textarea,
+input[type="text"] {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+textarea:focus,
+input[type="text"]:focus {
+  outline: none;
+  border-color: #8b5cf6;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+/* Buttons */
+.btn-primary,
+.btn-secondary {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background: #8b5cf6;
+  color: white;
+  width: 100%;
+  justify-content: center;
+}
+
+.btn-primary:hover {
+  background: #7c3aed;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #1f2937;
+  border: 2px solid #e5e7eb;
+}
+
+.btn-secondary:hover {
+  background: #f1f5f9;
+  border-color: #8b5cf6;
+}
+
+/* Flashcards Layout */
+.flashcards-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.flashcard-display {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.flashcard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flashcard-header h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.card-counter {
+  background: #8b5cf6;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.875rem;
+}
+
+/* Flashcard Animation */
+.flashcard-container {
+  perspective: 1000px;
+  height: 320px;
+}
+
+.flashcard {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.flashcard.flipped {
+  transform: rotateY(180deg);
+}
+
+.flashcard-front,
+.flashcard-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background: #f8fafc; /* Changed flashcard-front background from white to light gray for better visibility */
+  border-radius: 1rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border: 2px solid #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.flashcard-front:hover,
+.flashcard-back:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.flashcard-back {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  color: white;
+  transform: rotateY(180deg);
+  border-color: #8b5cf6;
+}
+
+.flashcard-content {
+  text-align: center;
+  width: 100%;
+}
+
+.flashcard-content h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.flashcard-content p {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  margin: 2rem 0;
+  font-weight: 500;
+}
+
+.flashcard-content small {
+  font-size: 0.875rem;
+  opacity: 0.8;
+}
+
+.flashcard-controls {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flashcard-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.study-progress {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.progress-label {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.progress-bar {
+  width: 100px;
+  height: 6px;
+  background: #e5e7eb;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #8b5cf6;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+  width: 0%;
+}
+
+.card-type {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: rgba(139, 92, 246, 0.1);
+  color: #8b5cf6;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.flashcard-back .card-type {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.flip-hint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  opacity: 0.7;
+  margin-top: 1.5rem;
+}
+
+/* Difficulty Rating Buttons */
+.difficulty-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn-difficulty {
+  padding: 0.5rem 1rem;
+  border: 2px solid #e5e7eb;
+  background: white;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.btn-difficulty.easy {
+  border-color: #10b981;
+  color: #10b981;
+}
+
+.btn-difficulty.easy:hover,
+.btn-difficulty.easy.active {
+  background: #10b981;
+  color: white;
+}
+
+.btn-difficulty.medium {
+  border-color: #f59e0b;
+  color: #f59e0b;
+}
+
+.btn-difficulty.medium:hover,
+.btn-difficulty.medium.active {
+  background: #f59e0b;
+  color: white;
+}
+
+.btn-difficulty.hard {
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+.btn-difficulty.hard:hover,
+.btn-difficulty.hard.active {
+  background: #ef4444;
+  color: white;
+}
+
+/* Mind Map Layout */
+.mindmap-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+}
+
+.mindmap-display {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border: 2px solid #f1f5f9;
+  overflow: hidden;
+  position: relative;
+}
+
+.mindmap-header {
+  padding: 1rem 1.5rem;
+  border-bottom: 2px solid #f1f5f9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fafbfc;
+}
+
+.mindmap-header h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.mindmap-controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn-icon {
+  width: 36px;
+  height: 36px;
+  border: 2px solid #e5e7eb;
+  background: white;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  color: #6b7280;
+}
+
+.btn-icon:hover {
+  border-color: #8b5cf6;
+  color: #8b5cf6;
+  background: #f8fafc;
+}
+
+.mindmap-canvas {
+  height: 500px;
+  position: relative;
+  background: linear-gradient(45deg, #f9fafb 25%, transparent 25%),
+    linear-gradient(-45deg, #f9fafb 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #f9fafb 75%),
+    linear-gradient(-45deg, transparent 75%, #f9fafb 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+}
+
+#mindmapSvg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.mindmap-placeholder {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #6b7280;
+  z-index: 1;
+}
+
+.mindmap-node {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.mindmap-node:hover {
+  transform: scale(1.05);
+}
+
+.node-circle {
+  fill: #8b5cf6;
+  stroke: #7c3aed;
+  stroke-width: 2;
+}
+
+.node-text {
+  fill: white;
+  font-size: 12px;
+  font-weight: 600;
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+
+.connection-line {
+  stroke: #8b5cf6;
+  stroke-width: 2;
+  marker-end: url(#arrowhead);
+}
+
+/* Chat Layout */
+.chat-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.chat-card {
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-header {
+  padding: 1.5rem;
+  border-bottom: 2px solid #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fafbfc;
+}
+
+.chat-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+}
+
+.welcome-message {
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+  border: 2px solid #e2e8f0;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.chat-messages {
+  flex: 1;
+  padding: 1.5rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.chat-placeholder {
+  text-align: center;
+  color: #6b7280;
+  padding: 2rem;
+}
+
+.message-avatar {
+  width: 32px;
+  height: 32px;
+  background: #8b5cf6;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+.chat-message {
+  max-width: 70%;
+  padding: 0.75rem 1rem;
+  border-radius: 1rem;
+  word-wrap: break-word;
+}
+
+.chat-message.user {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  color: white;
+  align-self: flex-end;
+  margin-left: auto;
+  border-radius: 1rem 1rem 0.25rem 1rem;
+  padding: 1rem 1.25rem;
+  max-width: 75%;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+}
+
+.chat-message.assistant {
+  background: white;
+  color: #1f2937;
+  border: 2px solid #f1f5f9;
+  align-self: flex-start;
+  border-radius: 1rem 1rem 1rem 0.25rem;
+  padding: 1rem 1.25rem;
+  max-width: 75%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.chat-input-form {
+  padding: 1.5rem;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  gap: 0.75rem;
+}
+
+.chat-input-form input {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.chat-input-form button {
+  width: auto;
+  padding: 0.75rem 1.5rem;
+}
+
+.quick-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.suggestion-btn {
+  background: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #6b7280;
+}
+
+.suggestion-btn:hover {
+  border-color: #8b5cf6;
+  color: #8b5cf6;
+  background: #f8fafc;
+}
+
+/* Footer */
+.footer {
+  background: #1f2937;
+  color: white;
+  padding: 3rem 1rem;
+  margin-top: 5rem;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.footer-brand i {
+  color: #8b5cf6;
+  font-size: 2rem;
+}
+
+.footer p {
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+}
+
+.footer small {
+  opacity: 0.8;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Loading Spinner Animation */
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+  color: #6b7280;
+}
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid #f1f5f9;
+  border-top: 3px solid #8b5cf6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-menu {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .nav-btn {
+    font-size: 0.875rem;
+    padding: 0.375rem 0.75rem;
+  }
+
+  .hero-title h1 {
+    font-size: 2rem;
+  }
+
+  .hero-title i {
+    font-size: 2rem;
+  }
+
+  .flashcards-container,
+  .mindmap-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .flashcard-controls {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .difficulty-buttons {
+    justify-content: center;
+  }
+
+  .mindmap-canvas {
+    height: 300px;
+  }
+
+  .chat-message.user,
+  .chat-message.assistant {
+    max-width: 90%;
+  }
+
+  .quick-suggestions {
+    flex-direction: column;
+  }
+}
