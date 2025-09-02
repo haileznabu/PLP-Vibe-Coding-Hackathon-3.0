@@ -766,10 +766,9 @@ function getNotificationIcon(type) {
 }
 
 function initializeFirebase() {
-  // Real Firebase initialization would go here
   console.log("[v0] Firebase initialization - configure with your project settings")
 
-  // Example Firebase initialization:
+  //Firebase initialization:
   /*
   import { initializeApp } from 'firebase/app'
   import { getFirestore } from 'firebase/firestore'
@@ -974,4 +973,39 @@ function setupMindMapControls() {
     isPanning = false
     svg.style.cursor = "grab"
   })
+}
+// Initialize Firebase
+firebase.initializeApp(API_CONFIG.FIREBASE_CONFIG)
+const db = firebase.firestore()
+
+// Save flashcards to Firestore
+async function saveToFirebase(flashcards) {
+  try {
+    const batch = db.batch()
+    flashcards.forEach(card => {
+      const docRef = db.collection("flashcards").doc()
+      batch.set(docRef, card)
+    })
+    await batch.commit()
+    showNotification("Flashcards saved to Firebase!", "success")
+  } catch (error) {
+    console.error("Error saving flashcards:", error)
+    showNotification("Error saving flashcards to Firebase.", "error")
+  }
+}
+
+// Load flashcards from Firestore
+async function loadFromFirebase() {
+  try {
+    const snapshot = await db.collection("flashcards").get()
+    const loaded = []
+    snapshot.forEach(doc => loaded.push({ id: doc.id, ...doc.data() }))
+    userFlashcards = loaded
+    currentFlashcard = 0
+    updateFlashcard()
+    showNotification("Loaded flashcards from Firebase!", "success")
+  } catch (error) {
+    console.error("Error loading flashcards:", error)
+    showNotification("Error loading flashcards from Firebase.", "error")
+  }
 }
