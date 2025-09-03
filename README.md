@@ -1,6 +1,6 @@
-# AI Study Buddy
+# MindLink AI Study Buddy
 
-AI Study Buddy is a smart learning platform that helps students study more effectively using AI-powered tools. The app provides three main features:
+MindLink AI Study Buddy is a smart learning platform that helps students study more effectively using AI-powered tools. The app provides three main features:
 
 - **Smart Flashcards:** Paste your study notes and let AI generate interactive flashcards to help you memorize key concepts.
 - **Mind Map Generator:** Enter a topic and AI will create an interactive mind map to help you visualize connections and concepts.
